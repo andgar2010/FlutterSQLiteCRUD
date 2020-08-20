@@ -104,8 +104,8 @@ class TodoListState extends State<TodoList> {
   }
 
   void updateListView() async {
-    var database = await databaseHelper.initializeDatabase();
-    var todoList = await databaseHelper.getTodoList();
+    await databaseHelper.initializeDatabase();
+    List<Todo> todoList = await databaseHelper.getTodoList();
     setState(() {
       this.todoList = todoList;
       this.count = todoList.length;
